@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coran - Traduction française</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="icon.png">
+	<script type="text/javascript" src="script.js" defer></script>
+</head>
+<body>
+	<div id="header">
+		<div class="icon" onclick="current_chapter--; changeChapter()">
+			<svg width="100%" height="100%" fill="none" viewBox="0 0 24 24">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.25 8.75L9.75 12L13.25 15.25"></path>
+			</svg>
+		</div>
+		<input type="text" id="chapter_input" placeholder="..." maxlength="3" value="1" onchange="current_chapter = parseInt(this.value); changeChapter();">
+		<div class="icon" onclick="current_chapter++; changeChapter()">
+			<svg width="100%" height="100%" fill="none" viewBox="0 0 24 24">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.75 8.75L14.25 12L10.75 15.25"></path>
+			</svg>
+		</div>
+	</div>
+	<div id="core">
+		<div id="chapter-1">
+			
+		</div>
+	</div>
+</body>
+</html>

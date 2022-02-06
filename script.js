@@ -16,11 +16,17 @@ function init() {
 			coran = request.response.quran;
 			chapter = 1;
 			for (var i = 0; i < coran.length; i++) {
+				var updated_text = [];
+				for (var c = 0; c < coran[i].text.length; c++) {
+					if (coran[i].text[c] != '[' && coran[i].text[c] != ']' && Number.isInteger(parseInt(coran[i].text[c])) == false) {
+						updated_text.push(coran[i].text[c]);
+					}
+				}
 				if (coran[i].chapter == chapter) {
-					document.getElementById(`chapter-${chapter}`).insertAdjacentHTML('beforeend', `<p><span>${coran[i].verse}. </span>${coran[i].text}</p>`);
+					document.getElementById(`chapter-${chapter}`).insertAdjacentHTML('beforeend', `<p><span>${coran[i].verse}. </span>${updated_text.join('')}</p>`);
 				} else {
 					chapter++;
-					core.insertAdjacentHTML('beforeend', `<div id="chapter-${chapter}"><p><span>${coran[i].verse}. </span>${coran[i].text}</p></div>`);
+					core.insertAdjacentHTML('beforeend', `<div id="chapter-${chapter}"><p><span>${coran[i].verse}. </span>${updated_text.join('')}</p></div>`);
 				}
 			}
 			changeChapter();
